@@ -1,0 +1,27 @@
+---
+ - name: create user ganybaba and add to local adminsitrators group
+   win_user: 
+    name: ganybaba
+    password: Pa$$w0rd1!
+    groups: administrators
+    
+ - name: Ensure Access on inetpub is added for ganybaba
+   win_acl:
+     user: vagrant
+     path: C:\inetpub\wwwroot\ganybaba
+     rights: modify
+     type: allow
+
+ - name: Create a directory
+   win_file:
+    path: C:\inetpub\wwwroot\ganybaba
+    state: directory
+
+ - name: remove inheritance permissions from the ganybab folder
+   win_acl_inheritance:
+    path: C:\inetpub\wwwroot\ganybaba
+    state: absent
+
+ - script: C:\scripts\Projects\reproduction.ps1
+    
+
