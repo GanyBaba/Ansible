@@ -1,5 +1,0 @@
----
- - hosts: db
-   roles:
-     - common
-     - database
