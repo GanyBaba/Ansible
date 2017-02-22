@@ -1,0 +1,5 @@
+---
+- name: Ensure SQL is installed
+  win_chocolatey:
+    name: mysql
+    state: present

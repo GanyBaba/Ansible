@@ -1,0 +1,10 @@
+---
+  - name: Ensure IIS webserver is installed
+    win_feature:
+      name: web-server
+      state: present
+
+  - name: Deploy Default iisstart.htm file
+    template:
+      src: iisstart.j2
+      dest: C:\inetpub\wwwroot\iisstart.htm
