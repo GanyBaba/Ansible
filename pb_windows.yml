@@ -1,5 +1,0 @@
----
- - hosts: web
-   gather_facts: false
-   roles:
-     - windows
